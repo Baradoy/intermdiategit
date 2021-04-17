@@ -7,6 +7,8 @@ defmodule IntermediateGit.Forum.Post do
     field :tags, :string
     field :title, :string
 
+    has_many :comments, Comment
+
     timestamps()
   end
 
