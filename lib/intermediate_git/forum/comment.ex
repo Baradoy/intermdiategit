@@ -2,8 +2,12 @@ defmodule IntermediateGit.Forum.Comment do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias IntermediateGit.Forum.Post
+
   schema "comment" do
     field :message, :string
+
+    belongs_to :post, Post
 
     timestamps()
   end
