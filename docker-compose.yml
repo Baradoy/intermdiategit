@@ -1,0 +1,27 @@
+version: "3.4"
+services:
+  postgres:
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: intermediate_git_dev
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_intermediategit:/var/lib/postgresql/data
+    command: postgres -c 'max_connections=200'
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: intermediategit
+      PGADMIN_DEFAULT_PASSWORD: intermediategit
+    ports:
+      - "5050:80"
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_intermediategit:
